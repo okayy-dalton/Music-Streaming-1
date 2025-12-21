@@ -2,17 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Home, 
-  Music, 
-  PlayCircle, 
-  Download, 
-  Heart, 
-  Menu,
-  X,
-  TrendingUp,
-  Radio
-} from 'lucide-react';
+import { Home, Music, PlayCircle, Download, Heart, Menu, X, TrendingUp, Radio } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -35,7 +25,6 @@ const MobileNav = () => {
         <Link to="/" className="text-xl font-bold text-white">
           MusicStream
         </Link>
-        
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="text-white">
@@ -44,17 +33,16 @@ const MobileNav = () => {
           </SheetTrigger>
           <SheetContent side="left" className="w-64 bg-gray-900 border-gray-800 p-0">
             <div className="flex items-center justify-between p-4 border-b border-gray-800">
-              <h2 className="text-lg font-semibold text-white">Menu</h2>
+              <h2 className="text-lg font-semibold text-white">MusicStream</h2>
               <Button 
                 variant="ghost" 
                 size="icon" 
-                onClick={() => setOpen(false)}
+                onClick={() => setOpen(false)} 
                 className="text-white"
               >
                 <X className="h-5 w-5" />
               </Button>
             </div>
-            
             <div className="flex flex-col p-2">
               {navItems.map((item) => {
                 const Icon = item.icon;
