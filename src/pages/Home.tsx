@@ -221,17 +221,17 @@ const Home = () => {
       <div className="md:ml-64 lg:ml-72 pb-24">
         <div className="container mx-auto px-4 pt-20 md:pt-8 py-8">
           <header className="mb-8">
-            <h1 className="text-3xl font-bold">Good evening</h1>
-            <p className="text-gray-400">Your personalized music dashboard</p>
+            <h1 className="text-3xl font-bold text-white">Good evening</h1>
+            <p className="text-gray-300">Your personalized music dashboard</p>
           </header>
 
           {/* Quick Picks Section */}
           <section className="mb-10">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold flex items-center">
+              <h2 className="text-2xl font-bold flex items-center text-white">
                 <Heart className="mr-2 text-red-500" /> Quick Picks
               </h2>
-              <Button variant="link" className="text-gray-400 hover:text-white">
+              <Button variant="link" className="text-gray-300 hover:text-white">
                 See all
               </Button>
             </div>
@@ -249,8 +249,8 @@ const Home = () => {
                       className="w-16 h-16 rounded-md object-cover"
                     />
                     <div className="ml-4 flex-1">
-                      <h3 className="font-semibold truncate">{track.title}</h3>
-                      <p className="text-sm text-gray-400 truncate">{track.artist}</p>
+                      <h3 className="font-semibold truncate text-white">{track.title}</h3>
+                      <p className="text-sm text-gray-300 truncate">{track.artist}</p>
                     </div>
                     <Button 
                       variant="ghost" 
@@ -258,7 +258,7 @@ const Home = () => {
                       className="opacity-0 group-hover:opacity-100 transition-opacity"
                       onClick={() => playTrack(track)}
                     >
-                      <Play className="h-5 w-5" />
+                      <Play className="h-5 w-5 text-white" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -269,10 +269,10 @@ const Home = () => {
           {/* Recently Played Section */}
           <section className="mb-10">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold flex items-center">
+              <h2 className="text-2xl font-bold flex items-center text-white">
                 <Clock className="mr-2 text-blue-500" /> Recently Played
               </h2>
-              <Button variant="link" className="text-gray-400 hover:text-white">
+              <Button variant="link" className="text-gray-300 hover:text-white">
                 See all
               </Button>
             </div>
@@ -283,17 +283,17 @@ const Home = () => {
                   key={track.id} 
                   className="flex items-center p-3 hover:bg-gray-750 transition-colors group"
                 >
-                  <span className="text-gray-500 w-8">{index + 1}</span>
+                  <span className="text-gray-400 w-8">{index + 1}</span>
                   <img 
                     src={track.coverArt} 
                     alt={track.title} 
                     className="w-12 h-12 rounded-md object-cover"
                   />
                   <div className="ml-4 flex-1">
-                    <h3 className="font-medium">{track.title}</h3>
-                    <p className="text-sm text-gray-400">{track.artist}</p>
+                    <h3 className="font-medium text-white">{track.title}</h3>
+                    <p className="text-sm text-gray-300">{track.artist}</p>
                   </div>
-                  <div className="text-sm text-gray-400 mr-4">
+                  <div className="text-sm text-gray-300 mr-4">
                     {formatDuration(track.duration)}
                   </div>
                   <Button 
@@ -302,7 +302,7 @@ const Home = () => {
                     className="opacity-0 group-hover:opacity-100 transition-opacity"
                     onClick={() => playTrack(track)}
                   >
-                    <Play className="h-4 w-4" />
+                    <Play className="h-4 w-4 text-white" />
                   </Button>
                   <Button 
                     variant="ghost" 
@@ -320,10 +320,10 @@ const Home = () => {
           {/* Trending Now Section */}
           <section className="mb-10">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold flex items-center">
+              <h2 className="text-2xl font-bold flex items-center text-white">
                 <TrendingUp className="mr-2 text-green-500" /> Trending Now
               </h2>
-              <Button variant="link" className="text-gray-400 hover:text-white">
+              <Button variant="link" className="text-gray-300 hover:text-white">
                 See all
               </Button>
             </div>
@@ -350,10 +350,10 @@ const Home = () => {
                     </Button>
                   </div>
                   <CardHeader className="p-3">
-                    <CardTitle className="text-sm font-medium truncate">{track.title}</CardTitle>
+                    <CardTitle className="text-sm font-medium truncate text-white">{track.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="p-3 pt-0">
-                    <p className="text-xs text-gray-400 truncate">{track.artist}</p>
+                    <p className="text-xs text-gray-300 truncate">{track.artist}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -362,33 +362,33 @@ const Home = () => {
 
           {/* Quick Access Section */}
           <section>
-            <h2 className="text-2xl font-bold mb-4">Quick Access</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Quick Access</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Card className="bg-gradient-to-br from-purple-900 to-purple-700 hover:from-purple-800 hover:to-purple-600 transition-colors cursor-pointer">
                 <CardContent className="p-5 flex flex-col items-center justify-center h-32">
-                  <Radio className="h-8 w-8 mb-2" />
-                  <h3 className="font-semibold">Radio</h3>
+                  <Radio className="h-8 w-8 mb-2 text-white" />
+                  <h3 className="font-semibold text-white">Radio</h3>
                 </CardContent>
               </Card>
               
               <Card className="bg-gradient-to-br from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 transition-colors cursor-pointer">
                 <CardContent className="p-5 flex flex-col items-center justify-center h-32">
-                  <TrendingUp className="h-8 w-8 mb-2" />
-                  <h3 className="font-semibold">New Releases</h3>
+                  <TrendingUp className="h-8 w-8 mb-2 text-white" />
+                  <h3 className="font-semibold text-white">New Releases</h3>
                 </CardContent>
               </Card>
               
               <Card className="bg-gradient-to-br from-green-900 to-green-700 hover:from-green-800 hover:to-green-600 transition-colors cursor-pointer">
                 <CardContent className="p-5 flex flex-col items-center justify-center h-32">
-                  <Heart className="h-8 w-8 mb-2" />
-                  <h3 className="font-semibold">Favorites</h3>
+                  <Heart className="h-8 w-8 mb-2 text-white" />
+                  <h3 className="font-semibold text-white">Favorites</h3>
                 </CardContent>
               </Card>
               
               <Card className="bg-gradient-to-br from-red-900 to-red-700 hover:from-red-800 hover:to-red-600 transition-colors cursor-pointer">
                 <CardContent className="p-5 flex flex-col items-center justify-center h-32">
-                  <Clock className="h-8 w-8 mb-2" />
-                  <h3 className="font-semibold">Recently Added</h3>
+                  <Clock className="h-8 w-8 mb-2 text-white" />
+                  <h3 className="font-semibold text-white">Recently Added</h3>
                 </CardContent>
               </Card>
             </div>
@@ -407,8 +407,8 @@ const Home = () => {
                 className="w-12 h-12 rounded-md object-cover"
               />
               <div>
-                <h3 className="font-semibold">{currentTrack.title}</h3>
-                <p className="text-gray-400 text-sm">{currentTrack.artist}</p>
+                <h3 className="font-semibold text-white">{currentTrack.title}</h3>
+                <p className="text-gray-300 text-sm">{currentTrack.artist}</p>
               </div>
             </div>
 
@@ -424,6 +424,7 @@ const Home = () => {
               <Button 
                 variant="ghost" 
                 size="icon"
+                className="text-white"
                 onClick={stopTrack}
               >
                 Stop
@@ -435,7 +436,7 @@ const Home = () => {
                 variant="ghost" 
                 size="icon"
                 onClick={() => toggleFavorite(currentTrack.id)}
-                className={currentTrack.isFavorite ? "text-red-500" : "text-gray-400"}
+                className={currentTrack.isFavorite ? "text-red-500" : "text-gray-300"}
               >
                 <Heart className={currentTrack.isFavorite ? "fill-current" : ""} size={18} />
               </Button>

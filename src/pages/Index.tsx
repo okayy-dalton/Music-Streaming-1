@@ -260,15 +260,15 @@ const Index = () => {
       <div className="md:ml-64 lg:ml-72 pb-24">
         <div className="container mx-auto px-4 pt-20 md:pt-8 py-8">
           <header className="mb-8">
-            <h1 className="text-3xl font-bold">Music Discovery</h1>
-            <p className="text-gray-400">Discover and stream music across all genres</p>
+            <h1 className="text-3xl font-bold text-white">Music Discovery</h1>
+            <p className="text-gray-300">Discover and stream music across all genres</p>
           </header>
 
           <Tabs defaultValue="discover" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-6">
-              <TabsTrigger value="discover">Discover</TabsTrigger>
-              <TabsTrigger value="playlists">Playlists</TabsTrigger>
-              <TabsTrigger value="downloads">Downloads</TabsTrigger>
+              <TabsTrigger value="discover" className="text-white">Discover</TabsTrigger>
+              <TabsTrigger value="playlists" className="text-white">Playlists</TabsTrigger>
+              <TabsTrigger value="downloads" className="text-white">Downloads</TabsTrigger>
             </TabsList>
             
             <TabsContent value="discover">
@@ -279,7 +279,7 @@ const Index = () => {
               />
               
               <div className="mb-4 flex justify-between items-center">
-                <h2 className="text-xl font-bold">
+                <h2 className="text-xl font-bold text-white">
                   {selectedGenres.length === 0 
                     ? 'All Tracks' 
                     : `${filteredTracks.length} Tracks in Selected Genres`}
@@ -308,7 +308,7 @@ const Index = () => {
             </TabsContent>
             
             <TabsContent value="downloads">
-              <h2 className="text-xl font-bold mb-4">Downloaded Tracks</h2>
+              <h2 className="text-xl font-bold mb-4 text-white">Downloaded Tracks</h2>
               <TrackList
                 tracks={tracks.filter(track => track.isDownloaded)}
                 onPlayTrack={playTrack}

@@ -205,9 +205,9 @@ const Radio = () => {
           <header className="mb-8">
             <div className="flex items-center space-x-3">
               <RadioIcon className="h-8 w-8 text-purple-500" />
-              <h1 className="text-3xl font-bold">Local Radio Stations</h1>
+              <h1 className="text-3xl font-bold text-white">Local Radio Stations</h1>
             </div>
-            <p className="text-gray-400 mt-2">Tune into local stations from around the country</p>
+            <p className="text-gray-300 mt-2">Tune into local stations from around the country</p>
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -226,8 +226,8 @@ const Radio = () => {
                       className="w-16 h-16 rounded-md object-cover"
                     />
                     <div>
-                      <CardTitle className="text-lg font-bold">{station.name}</CardTitle>
-                      <p className="text-sm text-gray-400">{station.frequency} • {station.location}</p>
+                      <CardTitle className="text-lg font-bold text-white">{station.name}</CardTitle>
+                      <p className="text-sm text-gray-300">{station.frequency} • {station.location}</p>
                       <p className="text-xs text-purple-400 mt-1">{station.genre}</p>
                     </div>
                   </div>
@@ -244,11 +244,11 @@ const Radio = () => {
                   >
                     {currentStation?.id === station.id && isPlaying ? (
                       <>
-                        <Pause className="mr-2 h-4 w-4" /> Stop
+                        <Pause className="mr-2 h-4 w-4 text-white" /> Stop
                       </>
                     ) : (
                       <>
-                        <Play className="mr-2 h-4 w-4" /> Play
+                        <Play className="mr-2 h-4 w-4 text-white" /> Play
                       </>
                     )}
                   </Button>
@@ -270,8 +270,8 @@ const Radio = () => {
                 className="w-12 h-12 rounded-md object-cover"
               />
               <div>
-                <h3 className="font-semibold">{currentStation.name}</h3>
-                <p className="text-gray-400 text-sm">{currentStation.frequency}</p>
+                <h3 className="font-semibold text-white">{currentStation.name}</h3>
+                <p className="text-gray-300 text-sm">{currentStation.frequency}</p>
               </div>
             </div>
 
@@ -287,6 +287,7 @@ const Radio = () => {
               <Button 
                 variant="ghost" 
                 size="icon"
+                className="text-white"
                 onClick={stopStation}
               >
                 Stop
@@ -298,7 +299,7 @@ const Radio = () => {
                 variant="ghost" 
                 size="icon"
                 onClick={toggleMute}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-300 hover:text-white"
               >
                 <Volume2 className="h-4 w-4" />
               </Button>
