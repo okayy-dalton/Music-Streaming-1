@@ -8,6 +8,8 @@ import MusicPlayer from '@/components/MusicPlayer';
 import TrackList from '@/components/TrackList';
 import GenreFilter from '@/components/GenreFilter';
 import PlaylistManager from '@/components/PlaylistManager';
+import Sidebar from '@/components/Sidebar';
+import MobileNav from '@/components/MobileNav';
 import { showSuccess, showError } from '@/utils/toast';
 
 // Mock data for tracks
@@ -251,67 +253,72 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white pb-24">
-      <div className="container mx-auto px-4 py-8">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold">Music Discovery</h1>
-          <p className="text-gray-400">Discover and stream music across all genres</p>
-        </header>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Sidebar />
+      <MobileNav />
+      
+      <div className="md:ml-64 lg:ml-72 pb-24">
+        <div className="container mx-auto px-4 pt-20 md:pt-8 py-8">
+          <header className="mb-8">
+            <h1 className="text-3xl font-bold">Music Discovery</h1>
+            <p className="text-gray-400">Discover and stream music across all genres</p>
+          </header>
 
-        <Tabs defaultValue="discover" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6">
-            <TabsTrigger value="discover">Discover</TabsTrigger>
-            <TabsTrigger value="playlists">Playlists</TabsTrigger>
-            <TabsTrigger value="downloads">Downloads</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="discover">
-            <GenreFilter 
-              genres={allGenres}
-              selectedGenres={selectedGenres}
-              onGenreChange={setSelectedGenres}
-            />
+          <Tabs defaultValue="discover" className="w-full">
+            <TabsList className="grid w-full grid-cols-3 mb-6">
+              <TabsTrigger value="discover">Discover</TabsTrigger>
+              <TabsTrigger value="playlists">Playlists</TabsTrigger>
+              <TabsTrigger value="downloads">Downloads</TabsTrigger>
+            </TabsList>
             
-            <div className="mb-4 flex justify-between items-center">
-              <h2 className="text-xl font-bold">
-                {selectedGenres.length === 0 
-                  ? 'All Tracks' 
-                  : `${filteredTracks.length} Tracks in Selected Genres`}
-              </h2>
-            </div>
+            <TabsContent value="discover">
+              <GenreFilter 
+                genres={allGenres}
+                selectedGenres={selectedGenres}
+                onGenreChange={setSelectedGenres}
+              />
+              
+              <div className="mb-4 flex justify-between items-center">
+                <h2 className="text-xl font-bold">
+                  {selectedGenres.length === 0 
+                    ? 'All Tracks' 
+                    : `${filteredTracks.length} Tracks in Selected Genres`}
+                </h2>
+              </div>
+              
+              <TrackList
+                tracks={filteredTracks}
+                onPlayTrack={playTrack}
+                onDownloadTrack={downloadTrack}
+                currentTrackId={currentTrack?.id || null}
+                isPlaying={isPlaying}
+              />
+            </TabsContent>
             
-            <TrackList
-              tracks={filteredTracks}
-              onPlayTrack={playTrack}
-              onDownloadTrack={downloadTrack}
-              currentTrackId={currentTrack?.id || null}
-              isPlaying={isPlaying}
-            />
-          </TabsContent>
-          
-          <TabsContent value="playlists">
-            <PlaylistManager
-              playlists={playlists}
-              onCreatePlaylist={createPlaylist}
-              onDeletePlaylist={deletePlaylist}
-              onAddTrackToPlaylist={addTrackToPlaylist}
-              onDownloadPlaylist={downloadPlaylist}
-              onPlayPlaylist={playPlaylist}
-              currentTrack={currentTrack}
-            />
-          </TabsContent>
-          
-          <TabsContent value="downloads">
-            <h2 className="text-xl font-bold mb-4">Downloaded Tracks</h2>
-            <TrackList
-              tracks={tracks.filter(track => track.isDownloaded)}
-              onPlayTrack={playTrack}
-              onDownloadTrack={downloadTrack}
-              currentTrackId={currentTrack?.id || null}
-              isPlaying={isPlaying}
-            />
-          </TabsContent>
-        </Tabs>
+            <TabsContent value="playlists">
+              <PlaylistManager
+                playlists={playlists}
+                onCreatePlaylist={createPlaylist}
+                onDeletePlaylist={deletePlaylist}
+                onAddTrackToPlaylist={addTrackToPlaylist}
+                onDownloadPlaylist={downloadPlaylist}
+                onPlayPlaylist={playPlaylist}
+                currentTrack={currentTrack}
+              />
+            </TabsContent>
+            
+            <TabsContent value="downloads">
+              <h2 className="text-xl font-bold mb-4">Downloaded Tracks</h2>
+              <TrackList
+                tracks={tracks.filter(track => track.isDownloaded)}
+                onPlayTrack={playTrack}
+                onDownloadTrack={downloadTrack}
+                currentTrackId={currentTrack?.id || null}
+                isPlaying={isPlaying}
+              />
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
       
       <MusicPlayer
